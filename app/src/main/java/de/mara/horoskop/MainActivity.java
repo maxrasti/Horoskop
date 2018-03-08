@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     public void onClick (View v){
 
-        Toast toast = Toast.makeText(this,"", Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(this,"string", Toast.LENGTH_LONG);
 
         toast.show();
 
