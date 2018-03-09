@@ -2,17 +2,17 @@ package de.mara.horoskop;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
 
-import java.io.BufferedOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpRequestFactory;
+import com.google.api.client.http.HttpResponse;
+import com.google.api.client.http.HttpTransport;
+import com.google.api.client.http.javanet.NetHttpTransport;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
@@ -31,6 +31,35 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     public void onClick (View v) {
 
+        HttpTransport httpTransport = new NetHttpTransport();
+        HttpRequestFactory requestFactory = httpTransport.createRequestFactory();
+
+        GenericUrl url = new GenericUrl("http://theastrologer-api.herokuapp.com/api/horoscope/aquaris/today");
+
+
+        Log.i("TAG$LOGGING","URL erzeugt: " + url);
+
+        HttpRequest request = requestFactory.buildGetRequest(url);
+        HttpResponse httpResponse = request.execute();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
+
         Toast toast = Toast.makeText(this, "string", Toast.LENGTH_LONG);
 
         toast.show();
@@ -46,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             url = new URL("https://aztro.herokuapp.com?sign="+sign+"&day="+day);
             client = (HttpURLConnection) url.openConnection();
             client.setRequestMethod("POST");
-           // client.setRequestProperty();
+            client.setRequestProperty("description","String");
             client.setDoOutput(true);
 
             OutputStream outputPost = new BufferedOutputStream(client.getOutputStream());
@@ -73,10 +102,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 client.disconnect();
         }
 
-
+    */
 
 
     }
 
-    }
+}
 
