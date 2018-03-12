@@ -14,6 +14,8 @@ import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     protected Button testbutton=null;
@@ -24,12 +26,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         testbutton=(Button) findViewById(R.id.button);
 
         testbutton.setOnClickListener(this);
     }
 
     public void onClick (View v) {
+
 
         HttpTransport httpTransport = new NetHttpTransport();
         HttpRequestFactory requestFactory = httpTransport.createRequestFactory();
@@ -39,10 +43,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         Log.i("TAG$LOGGING","URL erzeugt: " + url);
 
-        HttpRequest request = requestFactory.buildGetRequest(url);
-        HttpResponse httpResponse = request.execute();
 
+        try {
+            HttpRequest request = requestFactory.buildGetRequest(url);
+            HttpResponse httpResponse = request.execute();
 
+            String jsonResponse = httpResponse.parseAsString();
+            Log.i("TAG$LOGGING","Answer: " +jsonResponse);
+
+        } catch (IOException e) {
+
+            Log.i("TAG$LOGGING","Catch");
+        }
 
 
 

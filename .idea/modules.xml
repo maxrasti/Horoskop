@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Horoskop.iml" filepath="$PROJECT_DIR$/Horoskop.iml" />
-      <module fileurl="file://C:\Users\lischka\Documents\GitHub\Horoskop\Horoskop.iml" filepath="C:\Users\lischka\Documents\GitHub\Horoskop\Horoskop.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\lischka\Documents\GitHub\Horoskop\app\app.iml" filepath="C:\Users\lischka\Documents\GitHub\Horoskop\app\app.iml" />
     </modules>
   </component>
 </project>
